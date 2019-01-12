@@ -1,9 +1,11 @@
 {
     "name": "halimtuhu/array-files",
-    "description": "A Laravel Nova field.",
+    "description": "A Laravel Nova field for distribute your files as array of object.",
     "keywords": [
         "laravel",
-        "nova"
+        "nova",
+        "files",
+        "array"
     ],
     "license": "MIT",
     "require": {
