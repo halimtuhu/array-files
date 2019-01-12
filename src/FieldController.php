@@ -2,8 +2,8 @@
 
 namespace Halimtuhu\ArrayFiles;
 
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class FieldController extends Controller
