@@ -18,7 +18,7 @@
                     @click="$refs.add_file.click()"
                     class="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded"
                     type="button"
-            >Upload File</button>
+            >Upload File<loader width="30" :class="hidden"/></button>
             <p v-if="hasError" class="my-2 text-danger">
                 {{ firstError }}
             </p>
@@ -54,6 +54,7 @@
         data() {
             return {
                 selectedFile: null,
+                hidden: "hidden",
                 files: [],
             }
         },
@@ -63,6 +64,7 @@
              * Selected file event trigger
              */
             fileSelected(event) {
+                this.hidden="";
                 var app = this;
                 const fd = new FormData();
                 fd.append('file', event.target.files[0], event.target.files[0].name);
@@ -73,6 +75,7 @@
                     .then(res => {
                         app.files.push(res.data);
                         app.value = JSON.stringify(app.files);
+                        this.hidden="hidden";
                     })
             },
 
