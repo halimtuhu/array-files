@@ -23,7 +23,7 @@ class FieldController extends Controller
         $data = [
             'originalName' => $request->file('file')->getClientOriginalName(),
             'name' => $file,
-            'url' => Storage::url($file),
+            'url' => Storage::disk($disk)->url($file),
         ];
 
         return $data;
@@ -31,7 +31,8 @@ class FieldController extends Controller
 
     public function delete($file)
     {
-        Storage::delete($file);
+        $disk = $request->disk ? $request->disk : 'public';
+        Storage::disk($disk)->delete($file);
 
         return "success";
     }
